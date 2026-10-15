@@ -6,7 +6,7 @@
 /*   By: jmunoz-j <jmunoz-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 09:24:59 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/15 20:04:49 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/15 22:05:57 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,11 +65,5 @@ void			ft_lstclear(t_list **lst, void (*del)(void *));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
-typedef struct s_node
-{
-	int				int;
-	struct s_node	*next;
-	struct s_node	*prev;
-}	t_node;
 
 #endif
