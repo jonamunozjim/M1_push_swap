@@ -20,7 +20,7 @@
 
 #include "push_swap.h"
 
-void	ft_dlst_addback(t_node **head, t_node **last, t_node *new)
+void	ft_dlst_addback(t_stack *stack, t_node *new, char c)
 {
 	if (!head || !last || !new)
 		return ;
