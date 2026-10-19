@@ -18,7 +18,8 @@
 
 typedef struct	s_node
 {
-	int	value;
+	int		value;
+	int		index;
 	s_node	*next;
 	s_node	*prev;
 } t_node;
@@ -37,5 +38,19 @@ void	ft_lstclear(t_node **dlst)
 unsigned int	ft_dlstsize(t_node *node)
 t_node	*ft_dlstnew(int value)
 t_node	*ft_dlstlast(t_node *dlst)
+void	ft_fill_nodes(t_stacks *stacks, int ac, char **av);
+void	ft_push_a(t_stacks *stacks);
+void	ft_push_b(t_stacks *stacks);
+void	ft_push_a_b(t_stacks *stacks);
+void	ft_swap_a(t_stacks *stacks);
+void	ft_swap_b(t_stacks *stacks);
+void	ft_swap_a_b(t_stacks *stacks);
+void	ft_rotate_a(t_stacks *stacks);
+void	ft_rotate_b(t_stacks *stacks);
+void	ft_rotate_a_b(t_stacks *stacks);
+void	ft_reverse_rotate_a(t_stacks *stacks);
+void	ft_reverse_rotate_b(t_stacks *stacks);
+void	ft_reverse_rotate_a_b(t_stacks *stacks);
+void	ft_fill_nodes(t_stacks *stacks, int ac, char **av);
 
 #endif

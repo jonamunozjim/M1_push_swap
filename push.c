@@ -6,7 +6,7 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 13:41:17 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/19 11:09:45 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/19 12:37:34 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ void	ft_push_a(t_stacks *stacks)
 		stacks->head_b->prev = NULL;
 	}
 	tmp->next = stacks->head_a;
-	if(!stacks->head_a)
+	if (!stacks->head_a)
 		stacks->last_a = tmp;
 	else
 		stacks->head_a->prev = tmp;
 	stacks->head_a = tmp;
-	write (1, " pa",3);
+	write (1, " pa", 3);
 }
 
 void	ft_push_b(t_stacks *stacks)
@@ -56,15 +56,13 @@ void	ft_push_b(t_stacks *stacks)
 		stacks->head_a->prev = NULL;
 	}
 	tmp->next = stacks->head_b;
-	if(!stacks->head_b)
+	if (!stacks->head_b)
 		stacks->last_b = tmp;
 	else
 		stacks->head_b->prev = tmp;
 	stacks->head_b = tmp;
-	write (1, " pb",3);
+	write (1, " pb", 3);
 }
-
-
 /*
 void	ft_push_a(t_stacks *stacks)
 {
@@ -99,4 +97,3 @@ void	ft_push_a(t_stacks *stacks)
 	}
 	write (1, " pa",3);
 }*/
-
