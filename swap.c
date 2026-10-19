@@ -6,7 +6,7 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 14:54:56 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/19 12:09:40 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/19 12:13:36 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,13 +45,13 @@ void	ft_swap_b(t_stacks *stacks)
 	tmp->next = stacks->head_b;
 	stacks->head_b = tmp;
 	if (!stacks->head_b->next->next)
-		stacks->last_a = stacks->head_b->next;
+		stacks->last_b = stacks->head_b->next;
 	write (1, " sb", 3);
 }
 
-void	ft_swap_ss(t_stacks *stacks)
+void	ft_swap_a_b(t_stacks *stacks)
 {
-	ft_swap_sa (stacks);
-	ft_swa_sb (stacks);
+	ft_swap_a (stacks);
+	ft_swap_b (stacks);
 	write (1, " (equiv. to ss)", 15);
 }
