@@ -6,7 +6,7 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 13:41:17 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/16 15:42:18 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/19 10:20:42 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,69 +16,61 @@ void	ft_push_a(t_stacks *stacks)
 {
 	t_node	*tmp;
 
-	if (stacks->head_b == NULL)
+	if (!stacks->head_b)
 		return ;
-	if (!stacks -> head_a)
+	tmp = stacks->head_b;
+	if (!stacks->head_b->prev && !stacks->head_b->next)
 	{
-		tmp = stacks->head_b;
-		tmp -> next = NULL;
-		stacks->head_b = tmp -> next;
-		if (stacks->head_b)
-			(stacks->head_b) -> prev = NULL;
-		stacks -> head_a = tmp;
-		stacks -> last_a = tmp;
+		stacks->head_b = NULL;
+		stacks->last_b = NULL;
 	}
 	else
 	{
-		tmp = stacks->head_b;
-		stacks->head_b = tmp -> next;
-		if (stacks->head_b)
-			(stacks->head_b)-> prev = NULL;
-		(stacks -> head_a) -> prev = tmp;
-		tmp -> next = stacks -> head_a;
-		stacks -> head_a = tmp;
+		stacks->head_b = stacks->head_b->next;
+		stacks->head_b->prev = NULL;
 	}
+	tmp->next = stacks->head_a;
+	if(!stacks->head_a)
+		stacks->last_a = tmp;
+	else
+		stacks->head_a->prev = tmp;
+	stacks->head_a = tmp;
+	write (1, " pa",3);
 }
 
-void	ft_push_b(t_stacks *stacks)
+
+/*
+void	ft_push_a(t_stacks *stacks)
 {
 	t_node	*tmp;
 
-	if (head_a == NULL)
+	if (!stacks->head_b)
 		return ;
-	if (!*head_b)
+	tmp = stacks->head_b;
+	if (!stacks->head_b->prev && !stacks->head_b->next)
 	{
-		tmp = *head_a;
-		*head_a = tmp -> next;
-		(*head_a) -> prev = NULL;
-		*head_b = tmp;
-		*last_b = tmp;
+		stacks->head_b = NULL;
+		stacks->last_b = NULL;
 	}
 	else
 	{
-		tmp = *head_a;
-		*head_a = tmp -> next;
-		(*head_a)-> prev = NULL;
-		(*head_b) -> prev = tmp;
-		tmp -> next = *head_b;
-		*head_b = tmp;
+		stacks->head_b = stacks->head_b->next;
+		stacks->head_b->prev = NULL;
+		if (!stacks->head_b->next)
+			stacks->last_b = stacks->head_b;
 	}
-//	free (tmp);
-}
-/*
-void	ft_push_b(t_stacks *stacks)
-{
-	if (head_a == NULL)
-		return ;
-	if (!*head_b)
+	if(!stacks->head_a)
 	{
-		*head_b = *head_a;
-		*last_b = *head_a;
+		tmp->next = NULL;
+		stacks->head_a = tmp;
+		stacks->last_a = stacks->head_a;
 	}
 	else
 	{
-		(*head_b)-> prev = *head_a;
-		(*head_a) -> next = *head_b;
-		*head_b = *head_a;
+		tmp->next = stacks->head_a;
+		stacks->head_a->prev = tmp;
+		stacks->head_a = tmp;
 	}
+	write (1, " pa",3);
 }*/
+
