@@ -6,7 +6,7 @@
 /*   By: fejimene <fejimene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 11:32:58 by fejimene          #+#    #+#             */
-/*   Updated: 2026/10/19 12:07:53 by fejimene         ###   ########.fr       */
+/*   Updated: 2026/10/19 12:35:43 by fejimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,5 @@ void    ft_rotate_a_b(t_stacks *stacks)
 {
     ft_rotate_a(stacks);
     ft_rotate_b(stacks);
-    write(1, " (equiv. to rr)", 15)
 }
 
