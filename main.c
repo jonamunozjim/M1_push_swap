@@ -19,7 +19,8 @@ void	ft_free_stacks(t_stacks *stacks)
 	ft_dlstclear (&(stacks->head_b));
 	free (stacks);
 }
-t_stacks	*ft_init_stacks (void)
+
+t_stacks	*ft_init_stacks(void)
 {
 	t_stacks	*stacks;
 

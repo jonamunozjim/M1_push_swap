@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fejimene <fejimene@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 14:54:56 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/20 13:33:41 by fejimene         ###   ########.fr       */
+/*   Updated: 2026/10/20 13:49:52 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_swap_a(t_stacks *stacks)
+void	ft_swap_a(t_stacks *stacks, int write_flag)
 {
 	t_node	*tmp;
 
@@ -28,13 +28,13 @@ void	ft_swap_a(t_stacks *stacks)
 	stacks->head_a = tmp;
 	if (!stacks->head_a->next->next)
 		stacks->last_a = stacks->head_a->next;
-	write (1, " sa", 3);
+	if (write_flag)
+		write (1, " sa", 3);
 }
 
-void	ft_swap_b(t_stacks *stacks)
+void	ft_swap_b(t_stacks *stacks, int write_flag)
 {
 	t_node	*tmp;
-	//int		print_flag;
 
 	if (!stacks->head_b || !stacks->head_b->next)
 		return ;
@@ -48,12 +48,13 @@ void	ft_swap_b(t_stacks *stacks)
 	stacks->head_b = tmp;
 	if (!stacks->head_b->next->next)
 		stacks->last_b = stacks->head_b->next;
-	write (1, " sb", 3);
+	if (write_flag)
+		write (1, " sb", 3);
 }
 
-void	ft_swap_a_b(t_stacks *stacks)
+void	ft_swap_a_b(t_stacks *stacks, int write_flag)
 {
-	ft_swap_a (stacks);
-	ft_swap_b (stacks);
-	write (1, " (equiv. to ss)", 15);
+	ft_swap_a (stacks, 0);
+	ft_swap_b (stacks, 0);
+	write (1, " ss", 3);
 }

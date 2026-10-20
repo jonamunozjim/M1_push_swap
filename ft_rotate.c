@@ -6,13 +6,13 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 11:32:58 by fejimene          #+#    #+#             */
-/*   Updated: 2026/10/19 12:53:02 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/20 13:47:42 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_rotate_a(t_stacks *stacks)
+void	ft_rotate_a(t_stacks *stacks, int write_flag)
 {
 	t_node	*tmp;
 
@@ -25,10 +25,11 @@ void	ft_rotate_a(t_stacks *stacks)
 	stacks->last_a->next = tmp;
 	tmp->prev = stacks->last_a;
 	stacks->last_a = tmp;
-	write(1, " ra", 3);
+	if (write_flag)
+		write(1, " ra", 3);
 }
 
-void	ft_rotate_b(t_stacks *stacks)
+void	ft_rotate_b(t_stacks *stacks, int write_flag)
 {
 	t_node	*tmp;
 
@@ -41,11 +42,13 @@ void	ft_rotate_b(t_stacks *stacks)
 	stacks->last_b->next = tmp;
 	tmp->prev = stacks->last_b;
 	stacks->last_b = tmp;
-	write(1, " rb", 3);
+	if (write_flag)
+		write(1, " rb", 3);
 }
 
 void	ft_rotate_a_b(t_stacks *stacks)
 {
-	ft_rotate_a(stacks);
-	ft_rotate_b(stacks);
+	ft_rotate_a(stacks, 0);
+	ft_rotate_b(stacks, 0);
+	write (1, " rr", 3);
 }

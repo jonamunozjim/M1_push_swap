@@ -6,7 +6,7 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/22 09:24:59 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/20 10:50:08 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/20 13:56:08 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
-# include <stdio.h> //For testing only
+# include <stdio.h>
 
 void			ft_bzero(void *s, size_t n);
 int				ft_isalnum(int c);
