@@ -41,6 +41,8 @@ int	main(int ac, char **av)
 	stacks = ft_init_stacks ();
 	ft_fill_nodes(stacks, ac, av);
 	disorder_i = ft_disorder (stacks);
+	if (disorder_i < 0)
+		return (ft_free_stacks (stacks), 0);
 	printf("%f\n", disorder_i);
 	return (ft_free_stacks (stacks), 0);
 }
