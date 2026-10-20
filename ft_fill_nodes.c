@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fill_nodes.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fejimene <fejimene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 12:18:22 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/19 14:03:42 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/20 09:57:30 by fejimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,20 @@ t_node	*ft_new_node(char **av, int i)
 void	ft_fill_nodes(t_stacks *stacks, int ac, char **av)
 {
 	t_node	*node;
-	t_node	*prev;
+	t_node	*tmp;
 	int		i;
 
 	i = 1;
 	stacks->head_a = ft_new_node (av, i);
-	prev = stacks->head_a;
+	tmp = stacks->head_a;
 	i++;
 	while (i < ac)
 	{
 		node = ft_new_node(av, i);
-		node->prev = prev;
+		node->prev = tmp;
 		prev->next = node;
-		prev = node;
+		tmp = node;
 		i++;
 	}
-	stacks->last_a = prev;
+	stacks->last_a = tmp;
 }
