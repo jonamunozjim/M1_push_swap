@@ -52,5 +52,6 @@ void	ft_reverse_rotate_a(t_stacks *stacks);
 void	ft_reverse_rotate_b(t_stacks *stacks);
 void	ft_reverse_rotate_a_b(t_stacks *stacks);
 void	ft_fill_nodes(t_stacks *stacks, int ac, char **av);
+t_node	*ft_new_node(char **av, int i);
 
 #endif
