@@ -49,6 +49,6 @@ void			ft_reverse_rotate_a_b(t_stacks *stacks);
 int				ft_fill_nodes(t_stacks *stacks, int ac, char **av);
 t_node			*ft_new_node(char **av, int i);
 float			ft_disorder(t_stacks *stacks);
-int				ft_is_valid(char *str)
+int				ft_is_valid(char *str);
 
 #endif
