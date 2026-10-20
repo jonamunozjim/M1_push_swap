@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   swap.c                                             :+:      :+:    :+:   */
+/*   ft_swap.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 14:54:56 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/19 12:38:39 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/20 11:53:46 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,10 @@ void	ft_swap_a(t_stacks *stacks)
 	write (1, " sa", 3);
 }
 
-void	ft_swap_b(t_stacks *stacks)
+void	ft_swap_b(int i, t_stacks *stacks)
 {
 	t_node	*tmp;
-	int		print_flag;
+	//int		print_flag;
 
 	if (!stacks->head_b || !stacks->head_b->next)
 		return ;

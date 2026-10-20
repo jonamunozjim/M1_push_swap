@@ -18,10 +18,10 @@
 
 typedef struct	s_node
 {
-	int		value;
-	int		index;
-	s_node	*next;
-	s_node	*prev;
+	int				value;
+	int				index;
+	struct s_node	*next;
+	struct s_node	*prev;
 } t_node;
 
 typedef struct	s_stacks
@@ -32,13 +32,8 @@ typedef struct	s_stacks
 	t_node	*last_b;
 } t_stacks;
 
-void	ft_dlst_addback(t_node **head, t_node **last, t_node *new)
-void	ft_dlst_addfront(t_node **head, t_node **last, t_node *new)
-void	ft_lstclear(t_node **dlst)
-unsigned int	ft_dlstsize(t_node *node)
-t_node	*ft_dlstnew(int value)
-t_node	*ft_dlstlast(t_node *dlst)
-void	ft_fill_nodes(t_stacks *stacks, int ac, char **av);
+unsigned int	ft_dlstsize(t_node *node);
+void	ft_dlstclear(t_node **dlst);
 void	ft_push_a(t_stacks *stacks);
 void	ft_push_b(t_stacks *stacks);
 void	ft_push_a_b(t_stacks *stacks);
@@ -53,5 +48,6 @@ void	ft_reverse_rotate_b(t_stacks *stacks);
 void	ft_reverse_rotate_a_b(t_stacks *stacks);
 void	ft_fill_nodes(t_stacks *stacks, int ac, char **av);
 t_node	*ft_new_node(char **av, int i);
+float	ft_disorder(t_stacks *stacks);
 
 #endif

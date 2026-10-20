@@ -11,18 +11,36 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "push_swap.h"
 
-/*
+void	ft_free_stacks(t_stacks *stacks)
+{
+	ft_dlstclear (&(stacks->head_a));
+	ft_dlstclear (&(stacks->head_b));
+	free (stacks);
+}
+t_stacks	*ft_init_stacks (void)
+{
+	t_stacks	*stacks;
 
-function compute_disorder(stack a):
-mistakes = 0
-total_pairs = 0
-for i from 0 to size(a)-1:
-for j from i+1 to size(a)-1:
-total_pairs += 1
-if a[i] > a[j]:
-mistakes += 1
-return mistakes / total_pairs
+	stacks = malloc (sizeof (t_stacks));
+	if (!stacks)
+		return (NULL);
+	stacks->head_a = NULL;
+	stacks ->head_b = NULL;
+	return (stacks);
+}
 
-*/
+int	main(int ac, char **av)
+{
+	t_stacks	*stacks;
+	float		disorder_i;
 
+	if (ac == 1)
+		return (0);
+	stacks = ft_init_stacks ();
+	ft_fill_nodes(stacks, ac, av);
+	disorder_i = ft_disorder (stacks);
+	printf("%f\n", disorder_i);
+	return (ft_free_stacks (stacks), 0);
+}
