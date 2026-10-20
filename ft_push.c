@@ -6,13 +6,13 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 13:41:17 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/20 13:46:24 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/20 13:59:25 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_push_a(t_stacks *stacks, int write_flag)
+void	ft_push_a(t_stacks *stacks)
 {
 	t_node	*tmp;
 
@@ -35,11 +35,10 @@ void	ft_push_a(t_stacks *stacks, int write_flag)
 	else
 		stacks->head_a->prev = tmp;
 	stacks->head_a = tmp;
-	if (write_flag)
-		write (1, " pa", 3);
+	write (1, " pa", 3);
 }
 
-void	ft_push_b(t_stacks *stacks, int write_flag)
+void	ft_push_b(t_stacks *stacks)
 {
 	t_node	*tmp;
 
@@ -62,8 +61,7 @@ void	ft_push_b(t_stacks *stacks, int write_flag)
 	else
 		stacks->head_b->prev = tmp;
 	stacks->head_b = tmp;
-	if (write_flag)
-		write (1, " pb", 3);
+	write (1, " pb", 3);
 }
 /*
 void	ft_push_a(t_stacks *stacks)
