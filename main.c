@@ -39,7 +39,8 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		return (0);
 	stacks = ft_init_stacks ();
-	ft_fill_nodes(stacks, ac, av);
+	if (ft_fill_nodes(stacks, ac, av) < 0)
+		return (ft_free_stacks (stacks), 0);
 	disorder_i = ft_disorder (stacks);
 	if (disorder_i < 0)
 		return (ft_free_stacks (stacks), 0);
