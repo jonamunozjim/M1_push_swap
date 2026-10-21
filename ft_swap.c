@@ -6,7 +6,7 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 14:54:56 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/21 10:14:08 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/21 11:45:42 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	ft_swap_a(t_stacks *stacks, int write_flag)
 	if (!stacks->head_a->next->next)
 		stacks->last_a = stacks->head_a->next;
 	if (write_flag)
-		write (1, " sa", 3);
+		write (1, "sa\n", 3);
 }
 
 void	ft_swap_b(t_stacks *stacks, int write_flag)
@@ -49,12 +49,12 @@ void	ft_swap_b(t_stacks *stacks, int write_flag)
 	if (!stacks->head_b->next->next)
 		stacks->last_b = stacks->head_b->next;
 	if (write_flag)
-		write (1, " sb", 3);
+		write (1, "sb\n", 3);
 }
 
 void	ft_swap_a_b(t_stacks *stacks)
 {
 	ft_swap_a (stacks, 0);
 	ft_swap_b (stacks, 0);
-	write (1, " ss", 3);
+	write (1, "ss\n", 3);
 }
