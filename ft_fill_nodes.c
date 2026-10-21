@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fill_nodes.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fejimene <fejimene@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 12:18:22 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/20 14:11:51 by fejimene         ###   ########.fr       */
+/*   Updated: 2026/10/21 10:11:47 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int	ft_fill_nodes(t_stacks *stacks, int ac, char **av)
 	{
 		if (!ft_is_valid(av[i]))
 		{
-			write(1, "Error\n", 6);
+			write(2, "Error\n", 6);
 			return (-1);
 		}
 		node = ft_new_node(av, i);
@@ -81,4 +81,5 @@ int	ft_fill_nodes(t_stacks *stacks, int ac, char **av)
 		i++;
 	}
 	stacks->last_a = tmp;
+	return (0);
 }

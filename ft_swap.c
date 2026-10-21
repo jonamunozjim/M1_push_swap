@@ -6,7 +6,7 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 14:54:56 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/20 13:49:52 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/21 10:14:08 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ void	ft_swap_b(t_stacks *stacks, int write_flag)
 		write (1, " sb", 3);
 }
 
-void	ft_swap_a_b(t_stacks *stacks, int write_flag)
+void	ft_swap_a_b(t_stacks *stacks)
 {
 	ft_swap_a (stacks, 0);
 	ft_swap_b (stacks, 0);

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_disorder.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fejimene <fejimene@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 10:49:12 by fejimene          #+#    #+#             */
-/*   Updated: 2026/10/20 13:34:53 by fejimene         ###   ########.fr       */
+/*   Updated: 2026/10/21 10:06:07 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ float	ft_disorder(t_stacks *stacks)
 			if (nodo_i -> value > nodo_j -> value)
 				mistakes++;
 			if (nodo_i -> value == nodo_j -> value)
-				return (write (1, "Error\n", 6), -1);
+				return (write (2, "Error\n", 6), -1);
 			nodo_j = nodo_j -> next;
 		}
 		nodo_i = nodo_i -> next;
