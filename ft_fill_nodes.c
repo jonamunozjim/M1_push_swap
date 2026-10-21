@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fill_nodes.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fejimene <fejimene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 12:18:22 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/21 10:11:47 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/21 11:21:01 by fejimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,5 +81,5 @@ int	ft_fill_nodes(t_stacks *stacks, int ac, char **av)
 		i++;
 	}
 	stacks->last_a = tmp;
-	return (0);
+	return (i);
 }
