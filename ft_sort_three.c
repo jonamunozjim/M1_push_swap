@@ -6,7 +6,7 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 12:46:28 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/21 13:18:59 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/21 14:49:18 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,20 @@
 
 int ft_sort_three(t_stacks *stacks)
 {
-    t_node  *first;
-    t_node  *second;
-    t_node  *third;
-    int     count;
+    int	first;
+    int second;
+	int	third;
+	int	count;
 
     count = 0;
-    if (first->value > second->value && first->value > third->value)
-    {
-        ft_rotate_a (stacks, 1);
-        ft_swap_a (stacks, 1);
-        count++;
-    }
-    else if ()
+    if (second > third)
+	{
+		ft_reverse_rotate_a (stacks, 1);
+		count ++;
+		if (first > second)
+			return (ft_swap_a (stacks, 1), count++);
+		return (count);
+	}
+	
+
 }
