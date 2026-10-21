@@ -48,7 +48,7 @@ int	main(int ac, char **av)
 	if (disorder_i < 0)
 		return (ft_free_stacks (stacks), 0);
 	printf("%f\n", disorder_i);
-	op_count = ft_simple_sort (stacks);
+	op_count = ft_medium_sort (stacks, ac);
 	printf("----Movements: %i\n", op_count);
 	return (ft_free_stacks (stacks), 0);
 }

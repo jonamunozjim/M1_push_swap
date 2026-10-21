@@ -6,7 +6,7 @@
 /*   By: fejimene <fejimene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 11:09:04 by fejimene          #+#    #+#             */
-/*   Updated: 2026/10/21 12:06:35 by fejimene         ###   ########.fr       */
+/*   Updated: 2026/10/21 13:25:47 by fejimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,20 +25,22 @@ void	ft_index_stack(t_stacks *stacks)
 		compare = stacks->head_a;
 		while (compare != NULL)
 		{
-			if (current->chunk_index > compare->chunk_index)
+			if (current->value > compare->value)
 				index_count++;
 			compare = compare->next;
 		}
-		current->chunk_inde = index_count;
+		current->chunk_index = index_count;
 		current = current->next;
 	}
 }
 
-void	ft_sort_to_b(t_stacks *stacks, int total_nodes)
+int	ft_sort_to_b(t_stacks *stacks, int total_nodes)
 {
 	int	i;
 	int	range;
+	int	count;
 
+	count = 0;
 	i = 0;
 	if (total_nodes <= 100)
 		range = 15;
@@ -49,8 +51,9 @@ void	ft_sort_to_b(t_stacks *stacks, int total_nodes)
 		if (stacks->head_a->chunk_index <= i)
 		{
 			ft_push_b(stacks);
-			ft_rotate_b(stacks);
+			ft_rotate_b(stacks, 1);
 			i++;
+			count++;
 		}
 		else if (stacks->head_a->chunk_index <= i + range)
 		{
@@ -58,8 +61,10 @@ void	ft_sort_to_b(t_stacks *stacks, int total_nodes)
 			i++;
 		}
 		else
-			ft_rotate_a(stacks);
+			ft_rotate_a(stacks, 1);
+		count++;
 	}
+	return (count);
 }
 
 int	get_max_pos(t_node *head)
@@ -86,39 +91,47 @@ int	get_max_pos(t_node *head)
 	return (max_pos);
 }
 
-void	ft_bring_to_top(t_stacks *stacks, int max_pos, int size_b)
+int	ft_bring_to_top(t_stacks *stacks, int max_pos, int size_b)
 {
+	int	count;
+
+	count = 0;
 	if (max_pos <= size_b / 2)
 	{
 		while (max_pos > 0)
 		{
-			ft_rotate_b(stacks);
+			ft_rotate_b(stacks, 1);
 			max_pos--;
+			count++;
 		}
 	}
 	else
 	{
 		while (max_pos < size_b)
 		{
-			ft_reverse_rotate_b(stacks);
+			ft_reverse_rotate_b(stacks, 1);
 			max_pos++;
+			count++;
 		}
 	}
+	return (count);
 }
 
-void	ft_medium_sort(t_stacks *stacks, int total_nodes)
+int	ft_medium_sort(t_stacks *stacks, int total_nodes)
 {
 	int	max_pos;
 	int	size_b;
+	int	count;
 
 	ft_index_stack(stacks);
-	ft_sort_to_b(stacks, total_nodes);
+	count = ft_sort_to_b(stacks, total_nodes);
 	size_b = total_nodes;
 	while (size_b > 0)
 	{
 		max_pos = get_max_pos(stacks->head_b);
-		ft_bring_to_top(stacks, max_pos, size_b);
+		count = count + ft_bring_to_top(stacks, max_pos, size_b);
 		ft_push_a(stacks);
 		size_b--;
 	}
+	return (count);
 }
