@@ -51,5 +51,7 @@ int				ft_fill_nodes(t_stacks *stacks, int ac, char **av);
 t_node			*ft_new_node(char **av, int i);
 float			ft_disorder(t_stacks *stacks);
 int				ft_is_valid(char *str);
+int				ft_simple_sort(t_stacks *stacks);
+t_node			*min_node(t_stacks *stack);
 
 #endif

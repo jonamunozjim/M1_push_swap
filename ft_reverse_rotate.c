@@ -6,7 +6,7 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 12:13:21 by fejimene          #+#    #+#             */
-/*   Updated: 2026/10/20 13:48:38 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/21 11:46:43 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_reverse_rotate_a(t_stacks *stacks, int write_flag)
 	tmp->next = stacks->head_a;
 	stacks->head_a = tmp;
 	if (write_flag)
-		write(1, " rra", 4);
+		write(1, "rra\n", 4);
 }
 
 void	ft_reverse_rotate_b(t_stacks *stacks, int write_flag)
@@ -43,12 +43,12 @@ void	ft_reverse_rotate_b(t_stacks *stacks, int write_flag)
 	tmp->next = stacks->head_b;
 	stacks->head_b = tmp;
 	if (write_flag)
-		write(1, " rrb", 4);
+		write(1, "rrb\n", 4);
 }
 
 void	ft_reverse_rotate_a_b(t_stacks *stacks)
 {
 	ft_reverse_rotate_a(stacks, 0);
 	ft_reverse_rotate_b(stacks, 0);
-	write (1, " rrr", 3);
+	write (1, "rrr\n", 3);
 }

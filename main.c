@@ -36,7 +36,9 @@ int	main(int ac, char **av)
 {
 	t_stacks	*stacks;
 	float		disorder_i;
+	int			op_count;
 
+	op_count = 0;
 	if (ac == 1)
 		return (0);
 	stacks = ft_init_stacks ();
@@ -46,5 +48,7 @@ int	main(int ac, char **av)
 	if (disorder_i < 0)
 		return (ft_free_stacks (stacks), 0);
 	printf("%f\n", disorder_i);
+	op_count = ft_simple_sort (stacks);
+	printf("----Movements: %i\n", op_count);
 	return (ft_free_stacks (stacks), 0);
 }
