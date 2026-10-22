@@ -53,6 +53,7 @@ float			ft_disorder(t_stacks *stacks);
 int				ft_is_valid(char *str);
 int				ft_simple_sort(t_stacks *stacks);
 t_node			*min_node(t_stacks *stack);
-int			ft_medium_sort(t_stacks *stacks, int total_nodes);
+int				ft_medium_sort(t_stacks *stacks, int total_nodes);
+int				ft_sort_three(t_stacks *stacks);
 
 #endif
