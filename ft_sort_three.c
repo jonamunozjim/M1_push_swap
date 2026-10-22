@@ -41,3 +41,19 @@ int	ft_sort_three(t_stacks *stacks)
 	else
 		return (1);
 }
+
+int	ft_sort_five(t_stacks *stacks)
+{
+	
+}
+
+
+int	ft_sort_small(int nodes, t_stacks *stacks)
+{
+	if (nodes == 2)
+		return (ft_swap_a, 1);
+	else if (nodes == 3)
+		return (ft_sort_three (stacks));
+	else
+		return  (ft_sort_five(stacks));
+}
