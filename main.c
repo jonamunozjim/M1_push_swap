@@ -50,8 +50,8 @@ int	main(int ac, char **av)
 	printf("%f\n", disorder_i);
 	printf("arg: %i\n", (ac - 1));
 	if (ac == 4)
-		return (ft_sort_three(stacks), ft_free_stacks (stacks), 0);
-	op_count = ft_complex_sort (stacks, (ac - 1));
+		op_count = ft_sort_three (stacks);
+	//op_count = ft_complex_sort (stacks, (ac - 1));
 	printf("----Movements: %i\n", op_count);
 	return (ft_free_stacks (stacks), 0);
 }

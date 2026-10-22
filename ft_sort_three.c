@@ -15,27 +15,29 @@
 
 int	ft_sort_three(t_stacks *stacks)
 {
-	int	first;
-	int	second;
-	int	third;
+	t_node	*first;
+	t_node	*second;
+	t_node	*third;
 
 	if (!stacks->head_a)
 		return (0);
-	first = stacks->head_a->value;
-	second = stacks->head_a->next->value;
-	third = stacks->head_a->next->next->value;
-	if (second > first && second > third)
+	first = stacks->head_a;
+	second = stacks->head_a->next;
+	third = stacks->head_a->next->next;
+	
+	if (first->value > second->value && first->value > third->value)
 	{
-		ft_reverse_rotate_a (stacks, 1);
-		if (first > second)
+		ft_rotate_a (stacks, 1);
+		if (stacks->head_a->value > stacks->head_a->next->value)
 			return (ft_swap_a (stacks, 1), 2);
 		return (1);
 	}
-	if (first > second & first > third)
-		ft_rotate_a (stacks, 1);
-	if (first < second)
-		return (1);
-	else
+	if (first->value > second->value)
+		return (ft_swap_a (stacks, 1), 1);
+	if (second->value > first->value)
+		ft_reverse_rotate_a (stacks, 1);
+	if (stacks->head_a->value > stacks->head_a->next->value)
 		return (ft_swap_a (stacks, 1), 2);
-	return (0);
+	else
+		return (1);
 }
