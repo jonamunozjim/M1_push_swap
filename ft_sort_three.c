@@ -24,11 +24,18 @@ int	ft_sort_three(t_stacks *stacks)
 	first = stacks->head_a->value;
 	second = stacks->head_a->next->value;
 	third = stacks->head_a->next->next->value;
-	printf("%i\n%i\n%i\n", first, second, third);
-	if (first > second && first > third)
+	if (second > first && second > third)
 	{
-		return (ft_reverse_rotate_a (stacks, 1), 0);
-		
+		ft_reverse_rotate_a (stacks, 1);
+		if (first > second)
+			return (ft_swap_a (stacks, 1), 2);
+		return (1);
 	}
+	if (first > second & first > third)
+		ft_rotate_a (stacks, 1);
+	if (first < second)
+		return (1);
+	else
+		return (ft_swap_a (stacks, 1), 2);
 	return (0);
 }
