@@ -48,10 +48,10 @@ int	main(int ac, char **av)
 	if (disorder_i < 0)
 		return (ft_free_stacks (stacks), 0);
 	printf("%f\n", disorder_i);
-	printf("arg: %i\n", ac);
+	printf("arg: %i\n", (ac - 1));
 	if (ac == 4)
 		return (ft_sort_three(stacks), ft_free_stacks (stacks), 0);
-	op_count = ft_medium_sort (stacks, ac);
+	op_count = ft_complex_sort (stacks, (ac - 1));
 	printf("----Movements: %i\n", op_count);
 	return (ft_free_stacks (stacks), 0);
 }
