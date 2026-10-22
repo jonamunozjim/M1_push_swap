@@ -6,32 +6,31 @@
 /*   By: fejimene <fejimene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 11:09:04 by fejimene          #+#    #+#             */
-/*   Updated: 2026/10/21 13:25:47 by fejimene         ###   ########.fr       */
+/*   Updated: 2026/10/22 10:15:41 by fejimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_index_stack(t_stacks *stacks)
+void	ft_push_chunk(t_stacks *stacks, int *i, int range, int *count)
 {
-	t_node	*current;
-	t_node	*compare;
-	int		index_count;
-
-	current = stacks->head_a;
-	while (current != NULL)
+	if (stacks->head_a->chunk_index <= *i)
 	{
-		index_count = 0;
-		compare = stacks->head_a;
-		while (compare != NULL)
-		{
-			if (current->value > compare->value)
-				index_count++;
-			compare = compare->next;
-		}
-		current->chunk_index = index_count;
-		current = current->next;
+		ft_push_b(stacks);
+		ft_rotate_b(stacks, 1);
+		(*i)++;
+		(*count)++;
 	}
+	else if (stacks->head_a->chunk_index <= *i + range)
+	{
+		ft_push_b(stacks);
+		(*i)++;
+	}
+	else
+	{
+		ft_rotate_a(stacks, 1);
+	}
+	(*count)++;
 }
 
 int	ft_sort_to_b(t_stacks *stacks, int total_nodes)
@@ -40,29 +39,15 @@ int	ft_sort_to_b(t_stacks *stacks, int total_nodes)
 	int	range;
 	int	count;
 
-	count = 0;
 	i = 0;
+	count = 0;
 	if (total_nodes <= 100)
 		range = 15;
 	else
 		range = 45;
 	while (stacks->head_a != NULL)
 	{
-		if (stacks->head_a->chunk_index <= i)
-		{
-			ft_push_b(stacks);
-			ft_rotate_b(stacks, 1);
-			i++;
-			count++;
-		}
-		else if (stacks->head_a->chunk_index <= i + range)
-		{
-			ft_push_b(stacks);
-			i++;
-		}
-		else
-			ft_rotate_a(stacks, 1);
-		count++;
+		ft_push_chunk(stacks, &i, range, &count);
 	}
 	return (count);
 }
