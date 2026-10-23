@@ -6,7 +6,7 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 13:11:56 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/22 14:37:50 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/23 09:49:58 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,8 @@ int	ft_check_best_r(t_stacks *stacks)
 	int	j;
 	t_node	*tmp;
 
-	i = 0;
-	j = 1;
+	i = 1;
+	j = 0;
 	tmp = ft_min_node (stacks);
 	while (tmp)
 	{
@@ -78,8 +78,8 @@ int	ft_check_best_r(t_stacks *stacks)
 		tmp = tmp->prev;
 	}
 	if (i <= j)
-		return (-i);
-	return (j);
+		return (i);
+	return (-j);
 }
 
 int ft_push_b_min(t_stacks *stacks)
@@ -87,28 +87,51 @@ int ft_push_b_min(t_stacks *stacks)
 	int	op;
 	int	count;
 	int	i;
-	
+	int	dir;
+
 	count = 0;
+	dir = 1;
 	i = 0;
 	op = ft_check_best_r (stacks);
-	if (op >= 0)
+	if (op < 0)
+	{
+		dir = 0;
+		op = -op;
+	}
+	while (i < op)
+	{
+		if (dir)
+			ft_reverse_rotate_a (stacks, 1);
+		else
+			ft_rotate_a (stacks, 1);
+		count++;
+		i++;
+	}
+	ft_push_b (stacks);
+	return (count++, count);
+}
+	
+/*bak
+if (op >= 0)
 	{
 		while (i < op)
 		{
 			ft_reverse_rotate_a (stacks, 1);
 			count++;
+			i++;
 		}
 	}
 	else
+	{
+		op = -op
 		while (i < op)
 		{
 			ft_rotate_a (stacks, 1);
 			count++;
+			i++;
 		}
-	ft_push_b (stacks);
-	count++;
-	return (count);
-}
+	}
+*/
 
 int	ft_sort_five(t_stacks *stacks, int nodes)
 {
