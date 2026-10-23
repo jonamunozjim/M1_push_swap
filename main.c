@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "super_libft.h"
 #include "push_swap.h"
 
 void	ft_free_stacks(t_stacks *stacks, int *flags)

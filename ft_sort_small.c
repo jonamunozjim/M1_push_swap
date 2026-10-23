@@ -6,11 +6,10 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 13:11:56 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/23 09:49:58 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/23 11:25:22 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "push_swap.h"
 
 int	ft_sort_three(t_stacks *stacks)

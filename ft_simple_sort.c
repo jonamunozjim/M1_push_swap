@@ -6,11 +6,10 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 10:35:25 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/21 12:18:17 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/23 11:25:22 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
 #include "push_swap.h"
 
 t_node	*ft_min_node(t_stacks *stacks)
