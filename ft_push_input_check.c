@@ -6,11 +6,11 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 10:20:41 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/23 11:22:39 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/23 11:25:22 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "super_libft.h"
 #include "push_swap.h"
 
 int	ft_check_flag_error (int flag_current, int flag_new)
@@ -58,7 +58,6 @@ int	ft_check_if_split (int ac, char av)
 	while (i < av)
 	{
 		if ft_strchr(av[i], ' ');
-
 	} 
 }
 char	*input(int ac, char **av, int *flags)
