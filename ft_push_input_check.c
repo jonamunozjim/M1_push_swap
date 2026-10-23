@@ -6,14 +6,14 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 10:20:41 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/23 11:25:22 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/23 13:37:36 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "super_libft.h"
 #include "push_swap.h"
 
-int	ft_check_flag_error (int flag_current, int flag_new)
+int	ft_check_double_flag (int flag_current, int flag_new)
 {
 	if (flag_current == 0)
 		return (flag_new);
@@ -26,46 +26,51 @@ int	*set_flags(int ac, char **av)
 	int		i;
 	int		*flags;
 
-	i = -1;
+	i = 1;
 	flags = calloc (2, sizeof(int));
 	if (!flags)
 		return (NULL);
-	while (av[i])
+	while (i < ac)
 	{
-		if (av[i] == "--simple")
-			flags[0] = ft_check_double_flag (flags[0], 1)
-		if (av[i] == "--medium")
-			flags[0] = ft_check_double_flag (flags[0], 2)
-		if (av[i] == "--complex")
-			flags[0] = ft_check_double_flag (flags[0], 3)
-		if (av[i] == "--adaptive")
-			flags[0] = ft_check_double_flag (flags[0], 4)
-		if (av[1] == "--bench")
-			flags[1] = ft_check_double_flag (flags[1], 1)
+		if (!ft_strncmp (av[i], "--simple", 8))
+			flags[0] = ft_check_double_flag (flags[0], 1);
+		if (!ft_strncmp (av[i], "--medium", 8))
+			flags[0] = ft_check_double_flag (flags[0], 2);
+		if (!ft_strncmp (av[i], "--complex", 9))
+			flags[0] = ft_check_double_flag (flags[0], 3);
+		if (!ft_strncmp (av[i], "--adaptive", 10))
+			flags[0] = ft_check_double_flag (flags[0], 4);
+		if (!ft_strncmp (av[i], "--bench", 7))
+			flags[1] = ft_check_double_flag (flags[1], 1);
 		if (flags[0] < 0 || flags[1] < 0)
 			return (NULL);
 		i++;
 	}
-	return (set_flags);
+	return (flags);
 }
 
-int	ft_check_if_split (int ac, char av)
+char	**ft_process_arg(int ac, char **av)
 {
-	int	i;
-
+	int		i;
+	char	**output;
+	char	*tmp;
 	i = 1;
-
-	while (i < av)
+	while (i < ac)
 	{
-		if ft_strchr(av[i], ' ');
-	} 
+		if (ft_strchr(av[i], ' '))
+		{
+			tmp = ft_strjoin("x ", av[i]);
+			output = ft_split (tmp, ' ');
+			free (tmp);
+			return (output);
+		}
+		else
+			i++;
+	}
+	return (av);
 }
-char	*input(int ac, char **av, int *flags)
-{
-	char	*alg_mode;
 
-	if (set_flags < 0)
-		return (NULL)
+
 
 
 

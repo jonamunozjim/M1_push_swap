@@ -13,7 +13,7 @@
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "libft.h"
+# include "super_libft.h"
 # include <stdio.h> //For testing purpose only. To be deleted
 
 typedef struct s_bench
@@ -70,5 +70,12 @@ int				ft_sort_three(t_stacks *stacks);
 int				ft_sort_five(t_stacks *stacks, int nodes);
 int				ft_sort_small(t_stacks *stacks, int nodes);
 int				ft_push_b_min(t_stacks *stacks);
+void 			init_bench(t_bench *bench);
+void 			ft_track_op(t_stacks *stacks, char *op);
+//static void 	ft_print_padded(int n, int fd);
+//static void		print_bench_ops(t_bench *bench);
+void 			print_benchmark(t_bench *bench);
+char			**ft_process_arg(int ac, char **av);
+int				*set_flags(int ac, char **av);
 
 #endif
