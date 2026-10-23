@@ -16,6 +16,14 @@
 # include "libft.h"
 # include <stdio.h> //For testing purpose only. To be deleted
 
+typedef struct s_bench
+{
+	float	disorder;
+	char	*strategy;
+	int		total;
+	int		sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr;
+}	t_bench;
+
 typedef struct s_node
 {
 	int				value;
@@ -31,6 +39,7 @@ typedef struct s_stacks
 	t_node	*head_b;
 	t_node	*last_a;
 	t_node	*last_b;
+	t_bench	bench;
 }	t_stacks;
 
 unsigned int	ft_dlstsize(t_node *node);
