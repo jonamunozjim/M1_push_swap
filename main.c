@@ -13,11 +13,11 @@
 #include "libft.h"
 #include "push_swap.h"
 
-void	ft_free_stacks(t_stacks *stacks)
+void	ft_free_stacks(t_stacks *stacks, int *flags)
 {
 	ft_dlstclear (&(stacks->head_a));
 	ft_dlstclear (&(stacks->head_b));
-	free (stacks);
+	free (stacks, flags);
 }
 
 t_stacks	*ft_init_stacks(void)
@@ -37,7 +37,12 @@ int	main(int ac, char **av)
 	t_stacks	*stacks;
 	float		disorder_i;
 	int			op_count;
+	char		*input;
+	int			*flags;
 
+	flags = set_flags(ac, av);
+	if (!flags)
+		return (write (2, "Error\n", 6), 0);
 	op_count = 0;
 	if (ac == 1)
 		return (0);
@@ -53,5 +58,5 @@ int	main(int ac, char **av)
 		op_count = ft_sort_small (stacks, (ac - 1));
 	//op_count = ft_complex_sort (stacks, (ac - 1));
 	printf("----Movements: %i\n", op_count);
-	return (ft_free_stacks (stacks), 0);
+	return (ft_free_stacks (stacks, flags), 0);
 }
