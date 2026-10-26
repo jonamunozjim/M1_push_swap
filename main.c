@@ -47,7 +47,6 @@ int	main(int ac, char **av)
 	printf("Algor: %i\nBench: %i\n", flags[0], flags[1]); //for testing only, delete
 	input = ft_process_arg (ac, av, flags);
 	printf("%s", av)
-	return (0);
 	/*if (flags[1])
 		//lamar al bench*/
 	op_count = 0;
@@ -61,9 +60,17 @@ int	main(int ac, char **av)
 		return (ft_free_stacks (stacks, flags), 0);
 	printf("%f\n", disorder_i);
 	printf("arg: %i\n", (ac - 1));
-	if (ac <= 6)
-		op_count = ft_sort_small (stacks, (ac - 1));
-	//op_count = ft_complex_sort (stacks, (ac - 1));
+	if	(ac <= 5)
+		op_count = ft_sort_small(stacks, ac);
+	else if (disorder_i > 0.0)
+	{
+		if (disorder_i < 0.2)
+			op_count = ft_simple_sort(stacks);
+		else if (disorder_i >= 0.2 && disorder_i < 0.5)
+			op_count = ft_medium_sort(stacks, ac);
+		else
+			op_count = ft_complex_sort(stacks, ac);
+    }
 	printf("----Movements: %i\n", op_count);
 	return (ft_free_stacks (stacks, flags), 0);
 }
