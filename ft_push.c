@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fejimene <fejimene@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/16 13:41:17 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/23 12:09:33 by fejimene         ###   ########.fr       */
+/*   Updated: 2026/10/26 09:44:02 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	ft_push_a(t_stacks *stacks)
 	else
 		stacks->head_a->prev = tmp;
 	stacks->head_a = tmp;
-	ft_track_op(stacks, "pa");
+	ft_track_op(stacks, "pa", 2);
 }
 
 void	ft_push_b(t_stacks *stacks)
@@ -61,7 +61,7 @@ void	ft_push_b(t_stacks *stacks)
 	else
 		stacks->head_b->prev = tmp;
 	stacks->head_b = tmp;
-	ft_track_op(stacks, "pb");
+	ft_track_op(stacks, "pb", 2);
 }
 /*
 void	ft_push_a(t_stacks *stacks)

@@ -6,7 +6,7 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 13:11:56 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/23 11:25:22 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/26 09:57:15 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,11 +39,11 @@ int	ft_sort_three(t_stacks *stacks)
 	else
 		return (1);
 }
-
+/*
 int	ft_best_push_min(t_stacks *stacks, int op)
 {
 	int	count;
-	
+
 	count = 0;
 	if (op >= 0)
 	while (stacks->head_a->prev)
@@ -52,12 +52,12 @@ int	ft_best_push_min(t_stacks *stacks, int op)
 		count++;
 	}
 	return (count);
-}
+}*/
 
 int	ft_check_best_r(t_stacks *stacks)
 {
-	int	i;
-	int	j;
+	int		i;
+	int		j;
 	t_node	*tmp;
 
 	i = 1;
@@ -65,14 +65,14 @@ int	ft_check_best_r(t_stacks *stacks)
 	tmp = ft_min_node (stacks);
 	while (tmp)
 	{
-		if(tmp->next)
+		if (tmp->next)
 			i++;
 		tmp = tmp->next;
 	}
 	tmp = ft_min_node (stacks);
 	while (tmp)
 	{
-		if(tmp->prev)
+		if (tmp->prev)
 			j++;
 		tmp = tmp->prev;
 	}
@@ -81,7 +81,7 @@ int	ft_check_best_r(t_stacks *stacks)
 	return (-j);
 }
 
-int ft_push_b_min(t_stacks *stacks)
+int	ft_push_b_min(t_stacks *stacks)
 {
 	int	op;
 	int	count;
@@ -107,9 +107,8 @@ int ft_push_b_min(t_stacks *stacks)
 		i++;
 	}
 	ft_push_b (stacks);
-	return (count++, count);
+	return (count + 1);
 }
-	
 /*bak
 if (op >= 0)
 	{
@@ -135,7 +134,7 @@ if (op >= 0)
 int	ft_sort_five(t_stacks *stacks, int nodes)
 {
 	int		count;
-	
+
 	count = ft_push_b_min (stacks);
 	if (nodes == 5)
 		count = count + ft_push_b_min (stacks);

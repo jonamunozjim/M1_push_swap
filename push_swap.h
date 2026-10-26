@@ -71,7 +71,7 @@ int				ft_sort_five(t_stacks *stacks, int nodes);
 int				ft_sort_small(t_stacks *stacks, int nodes);
 int				ft_push_b_min(t_stacks *stacks);
 void 			init_bench(t_bench *bench);
-void 			ft_track_op(t_stacks *stacks, char *op);
+void 			ft_track_op(t_stacks *stacks, char *op, int len);
 //static void 	ft_print_padded(int n, int fd);
 //static void		print_bench_ops(t_bench *bench);
 void 			print_benchmark(t_bench *bench);

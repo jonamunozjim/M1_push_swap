@@ -6,14 +6,14 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 10:20:41 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/23 13:37:36 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/26 09:58:04 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "super_libft.h"
 #include "push_swap.h"
 
-int	ft_check_double_flag (int flag_current, int flag_new)
+int	ft_check_double_flag(int flag_current, int flag_new)
 {
 	if (flag_current == 0)
 		return (flag_new);
@@ -54,6 +54,7 @@ char	**ft_process_arg(int ac, char **av)
 	int		i;
 	char	**output;
 	char	*tmp;
+
 	i = 1;
 	while (i < ac)
 	{
@@ -69,9 +70,3 @@ char	**ft_process_arg(int ac, char **av)
 	}
 	return (av);
 }
-
-
-
-
-
-		

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_reverse_rotate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fejimene <fejimene@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 12:13:21 by fejimene          #+#    #+#             */
-/*   Updated: 2026/10/23 12:11:44 by fejimene         ###   ########.fr       */
+/*   Updated: 2026/10/26 09:43:55 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_reverse_rotate_a(t_stacks *stacks, int write_flag)
 	tmp->next = stacks->head_a;
 	stacks->head_a = tmp;
 	if (write_flag)
-		ft_track_op(stacks, "rra");
+		ft_track_op(stacks, "rra", 3);
 }
 
 void	ft_reverse_rotate_b(t_stacks *stacks, int write_flag)
@@ -43,12 +43,12 @@ void	ft_reverse_rotate_b(t_stacks *stacks, int write_flag)
 	tmp->next = stacks->head_b;
 	stacks->head_b = tmp;
 	if (write_flag)
-		ft_track_op(stacks, "rrb");
+		ft_track_op(stacks, "rrb", 3);
 }
 
 void	ft_reverse_rotate_a_b(t_stacks *stacks)
 {
 	ft_reverse_rotate_a(stacks, 0);
 	ft_reverse_rotate_b(stacks, 0);
-	ft_track_op(stacks, "rrr");
+	ft_track_op(stacks, "rrr", 3);
 }
