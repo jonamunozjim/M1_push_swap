@@ -13,12 +13,13 @@
 #include "super_libft.h"
 #include "push_swap.h"
 
-void	ft_free_stacks(t_stacks *stacks, int *flags)
+void	ft_free_stacks(t_stacks *stacks, int *flags, char **input)
 {
 	ft_dlstclear (&(stacks->head_a));
 	ft_dlstclear (&(stacks->head_b));
 	free (stacks);
 	free (flags);
+	free (input);
 }
 
 t_stacks	*ft_init_stacks(void)
@@ -43,10 +44,10 @@ int	main(int ac, char **av)
 
 	flags = set_flags(ac, av);
 	if (!flags)
-		return (write (2, "Error\n", 6), 0);
+		return (write (2, "Error_1\n", 6), 0);
 	printf("Algor: %i\nBench: %i\n", flags[0], flags[1]); //for testing only, delete
 	input = ft_process_arg (ac, av, flags);
-	printf("%s", av)
+	ac = flags[2];
 	/*if (flags[1])
 		//lamar al bench*/
 	op_count = 0;
@@ -54,23 +55,23 @@ int	main(int ac, char **av)
 		return (0);
 	stacks = ft_init_stacks ();
 	if (ft_fill_nodes(stacks, ac, input) < 0)
-		return (ft_free_stacks (stacks, flags), 0);
+		return (ft_free_stacks (stacks, flags, input), 0);
 	disorder_i = ft_disorder (stacks);
 	if (disorder_i < 0)
-		return (ft_free_stacks (stacks, flags), 0);
+		return (ft_free_stacks (stacks, flags, input), 0);
 	printf("%f\n", disorder_i);
 	printf("arg: %i\n", (ac - 1));
 	if	(ac <= 5)
-		op_count = ft_sort_small(stacks, ac);
+		op_count = ft_sort_small(stacks, (ac - 1));
 	else if (disorder_i > 0.0)
 	{
 		if (disorder_i < 0.2)
 			op_count = ft_simple_sort(stacks);
 		else if (disorder_i >= 0.2 && disorder_i < 0.5)
-			op_count = ft_medium_sort(stacks, ac);
+			op_count = ft_medium_sort(stacks, (ac - 1));
 		else
-			op_count = ft_complex_sort(stacks, ac);
+			op_count = ft_complex_sort(stacks, (ac - 1));
     }
 	printf("----Movements: %i\n", op_count);
-	return (ft_free_stacks (stacks, flags), 0);
+	return (ft_free_stacks (stacks, flags, input), 0);
 }

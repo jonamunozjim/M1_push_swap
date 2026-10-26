@@ -75,7 +75,7 @@ void 			ft_track_op(t_stacks *stacks, char *op, int len);
 //static void 	ft_print_padded(int n, int fd);
 //static void		print_bench_ops(t_bench *bench);
 void 			print_benchmark(t_bench *bench);
-char			**ft_process_arg(int ac, char **av);
+char			**ft_process_arg(int ac, char **av, int *flags);
 int				*set_flags(int ac, char **av);
 
 #endif

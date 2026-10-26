@@ -6,12 +6,31 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 10:20:41 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/26 09:58:04 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/26 11:25:27 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "super_libft.h"
 #include "push_swap.h"
+
+unsigned int	word_count(char const *s, char c)
+{
+	unsigned int	i;
+	unsigned int	count;
+
+	i = 0;
+	count = 0;
+	while (s[i])
+	{
+		if (s[i] != c)
+		{
+			if (i == 0 || s[i - 1] == c)
+				count++;
+		}
+		i++;
+	}
+	return (count);
+}
 
 int	ft_check_double_flag(int flag_current, int flag_new)
 {
@@ -27,7 +46,7 @@ int	*set_flags(int ac, char **av)
 	int		*flags;
 
 	i = 1;
-	flags = calloc (2, sizeof(int));
+	flags = calloc (3, sizeof(int));
 	if (!flags)
 		return (NULL);
 	while (i < ac)
@@ -49,7 +68,7 @@ int	*set_flags(int ac, char **av)
 	return (flags);
 }
 
-char	**ft_process_arg(int ac, char **av)
+char	**ft_process_arg(int ac, char **av, int *flags)
 {
 	int		i;
 	char	**output;
@@ -61,12 +80,21 @@ char	**ft_process_arg(int ac, char **av)
 		if (ft_strchr(av[i], ' '))
 		{
 			tmp = ft_strjoin("x ", av[i]);
+			//tmp = av[i];
+			flags[2] = word_count (tmp, ' ');
 			output = ft_split (tmp, ' ');
+			i = 1;
+			while (i < flags[2])
+			{
+				printf("%s\n", output[i]);
+				i++;
+			}
 			free (tmp);
 			return (output);
 		}
 		else
 			i++;
 	}
+	flags[2] = ac;
 	return (av);
 }
