@@ -46,7 +46,6 @@ int	main(int ac, char **av)
 		return (write (2, "Error\n", 6), 0);
 	printf("Algor: %i\nBench: %i\n", flags[0], flags[1]); //for testing only, delete
 	input = ft_process_arg (ac, av, flags);
-	
 	printf("%s", av)
 	return (0);
 	/*if (flags[1])
