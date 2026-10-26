@@ -76,24 +76,24 @@ int	main(int ac, char **av)
 	char		**input;
 	int			*flags;
 
+	if (ac == 1)
+		return (0);
 	flags = set_flags(ac, av);
 	if (!flags)
 		return (write (2, "Error\n", 6), 0);
 	input = ft_process_arg (ac, av, flags);
-	if (ac == 1)
-		return (0);
+	if (flags[2] == 1)
+		return (write (2, "Error\n", 6), free(flags), ft_free_input(input), 0);
 	stacks = ft_init_stacks ();
 	ac = ft_fill_nodes(stacks, flags[2], input);
 	if (ac < 0)
-		return (ft_free_stacks (stacks, flags), 0);
+		return (ft_free_stacks (stacks, flags, av, input), 0);
 	disorder_i = ft_disorder (stacks);
 	if (disorder_i <= 0)
-		return (ft_free_stacks (stacks, flags), 0);
+		return (ft_free_stacks (stacks, flags, av, input), 0);
 	stacks->bench.disorder = disorder_i;
 	ft_strategy (stacks, disorder_i, ac, flags);
 	if (flags[1] == 1)
 		ft_bench(&(stacks->bench));
-	if (ac == flags[2])
-		free (ft_free_input(input));
-	return (ft_free_stacks (stacks, flags), 0);
+	return (ft_free_stacks (stacks, flags, av, input), 0);
 }

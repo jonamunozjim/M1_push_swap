@@ -21,7 +21,17 @@ typedef struct s_bench
 	float	disorder;
 	char	*strategy;
 	int		total;
-	int		sa, sb, ss, pa, pb, ra, rb, rr, rra, rrb, rrr;
+	int		sa;
+	int		sb;
+	int		ss;
+	int		pa;
+	int		pb;
+	int		ra;
+	int		rb;
+	int		rr;
+	int		rra;
+	int		rrb;
+	int		rrr;
 }	t_bench;
 
 typedef struct s_node
@@ -70,12 +80,13 @@ int				ft_sort_three(t_stacks *stacks);
 int				ft_sort_five(t_stacks *stacks, int nodes);
 int				ft_sort_small(t_stacks *stacks, int nodes);
 int				ft_push_b_min(t_stacks *stacks);
-void 			init_bench(t_bench *bench);
-void 			ft_track_op(t_stacks *stacks, char *op, int len);
-void 			ft_bench(t_bench *bench);
+void			init_bench(t_bench *bench);
+void			ft_track_op(t_stacks *stacks, char *op, int len);
+void			ft_bench(t_bench *bench);
 char			**ft_process_arg(int ac, char **av, int *flags);
 int				*set_flags(int ac, char **av);
-void			ft_free_stacks(t_stacks *stacks, int *flags);
+void			ft_free_stacks(t_stacks *stacks, int *flags, char **av, char **input);
 t_stacks		*ft_init_stacks(void);
+void			ft_free_input(char **input);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 13:11:56 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/26 09:57:15 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/26 17:40:36 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ int	ft_sort_three(t_stacks *stacks)
 	first = stacks->head_a;
 	second = stacks->head_a->next;
 	third = stacks->head_a->next->next;
+	if (first->value < second->value && second->value < third->value)
+		return (0);
 	if (first->value > second->value && first->value > third->value)
 	{
 		ft_rotate_a (stacks, 1);
@@ -36,23 +38,8 @@ int	ft_sort_three(t_stacks *stacks)
 		ft_reverse_rotate_a (stacks, 1);
 	if (stacks->head_a->value > stacks->head_a->next->value)
 		return (ft_swap_a (stacks, 1), 2);
-	else
-		return (1);
+	return (1);
 }
-/*
-int	ft_best_push_min(t_stacks *stacks, int op)
-{
-	int	count;
-
-	count = 0;
-	if (op >= 0)
-	while (stacks->head_a->prev)
-	{
-		ft_rotate_a (stacks, 1);
-		count++;
-	}
-	return (count);
-}*/
 
 int	ft_check_best_r(t_stacks *stacks)
 {
