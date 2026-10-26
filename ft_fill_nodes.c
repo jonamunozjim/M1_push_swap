@@ -6,7 +6,7 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 12:18:22 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/26 12:28:24 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/26 13:00:24 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,21 @@
 int	ft_remove_flags(char **str, int ac)
 {
 	int	i;
-	
+
 	i = 1;
 	while (i < ac)
 	{
-		if (!ft_strncmp (str[i], "--simple", 8) ||
-			!ft_strncmp (str[i], "--medium", 8)||
-			!ft_strncmp (str[i], "--complex", 9) ||
-			!ft_strncmp (str[i], "--adaptive", 10) ||
-			!ft_strncmp (str[i], "--bench", 7))
-				i++;
+		if (!ft_strncmp (str[i], "--simple", 8)
+			|| !ft_strncmp (str[i], "--medium", 8)
+			|| !ft_strncmp (str[i], "--complex", 9)
+			|| !ft_strncmp (str[i], "--adaptive", 10)
+			|| !ft_strncmp (str[i], "--bench", 7))
+			i++;
 		else
 			return (i);
 	}
 	return (i);
 }
-	
-
 
 int	ft_is_valid(char *str)
 {
@@ -66,6 +64,11 @@ t_node	*ft_new_node(char **av, int i)
 {
 	t_node	*new_node;
 
+	if (!ft_is_valid(av[i]))
+	{
+		write(2, "Error\n", 12);
+		return (NULL);
+	}
 	new_node = malloc (sizeof (t_node));
 	if (!new_node)
 		return (NULL);
@@ -81,38 +84,25 @@ int	ft_fill_nodes(t_stacks *stacks, int ac, char **av)
 	t_node	*node;
 	t_node	*tmp;
 	int		i;
-	int	count;
+	int		start;
 
 	i = ft_remove_flags(av, ac);
+	start = i;
 	if (i >= ac)
 		return (0);
-	if (!ft_is_valid(av[i]))
-		{
-			write(2, "Error_nodes\n", 12); //modify to Error
-			return (-1);
-		}
 	stacks->head_a = ft_new_node (av, i);
 	if (!stacks->head_a)
 		return (-1);
-	count = 1;
 	tmp = stacks->head_a;
-	i++;
-	while (i < ac)
+	while (++i < ac)
 	{
-		if (!ft_is_valid(av[i]))
-		{
-			write(2, "Error_nodes\n", 12); //modify to Error
-			return (-1);
-		}
 		node = ft_new_node(av, i);
-		count++;
 		if (!node)
 			return (-1);
 		node->prev = tmp;
 		tmp->next = node;
 		tmp = node;
-		i++;
 	}
 	stacks->last_a = tmp;
-	return (count);
+	return (ac - start);
 }
