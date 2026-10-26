@@ -6,7 +6,7 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/26 13:46:22 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/26 13:51:38 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/26 14:19:32 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,14 @@ t_stacks	*ft_init_stacks(void)
 	stacks->head_a = NULL;
 	stacks ->head_b = NULL;
 	return (stacks);
+}
+
+void ft_free_input(char **input, int i)
+{
+	while (i >= 0)
+	{
+		free (input[i])
+		i--;
+	}
+	free(input)
 }

@@ -93,5 +93,7 @@ int	main(int ac, char **av)
 	ft_strategy (stacks, disorder_i, ac, flags);
 	if (flags[1] == 1)
 		ft_bench(&(stacks->bench));
+	if (ac == flags[2])
+		free (ft_free_input(input));
 	return (ft_free_stacks (stacks, flags), 0);
 }
