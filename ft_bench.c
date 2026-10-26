@@ -96,7 +96,7 @@ static void	print_bench_ops(t_bench *bench)
 	ft_putstr_fd("\n", 2);
 }
 
-void	print_benchmark(t_bench *bench)
+void	ft_bench(t_bench *bench)
 {
 	int	integer;
 	int	decimal;

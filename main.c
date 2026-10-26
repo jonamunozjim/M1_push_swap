@@ -59,37 +59,53 @@ int	main(int ac, char **av)
 	if (disorder_i == 0)
 		return (ft_free_stacks (stacks, flags), 0);
 	printf("%f\n", disorder_i);
+	stacks->bench.disorder = disorder_i;
 	printf("arg: %i\n", ac);
 	if (flags[0] == 1)
 	{
+		stacks->bench.strategy = "Simple / O(n^2)";
 		op_count = ft_simple_sort (stacks);
 		printf("\n*simple*\n");
 	}
 	else if (flags[0] == 2)
 	{
+		stacks->bench.strategy = "Medium / O(n√n)";
 		op_count = ft_medium_sort (stacks, ac);
 		printf("\n*medium*\n");
 	}
 	else if (flags[0] == 3)
 	{
+		stacks->bench.strategy = "Complex / O(n log n)";
 		op_count = ft_complex_sort (stacks, ac);
-			printf("\n*complex*\n");
+		printf("\n*complex*\n");
 	}
 	else if	(ac <= 5)
 	{
+		stacks->bench.strategy = "Simple / O(n^2)";
 		op_count = ft_sort_small(stacks, ac);
 		printf("\n*small*\n");
 	}
 	else
 	{
 		if (disorder_i < 0.2)
+		{
+			stacks->bench.strategy = "Adaptative / O(n^2)";
 			op_count = ft_simple_sort(stacks);
+		}
 		else if (disorder_i >= 0.2 && disorder_i < 0.5)
+		{
+			stacks->bench.strategy = "Adaptative / O(n√n)";
 			op_count = ft_medium_sort(stacks, ac);
+		}
 		else
+		{
+			stacks->bench.strategy = "Adaptative / O(n log n)";
 			op_count = ft_complex_sort(stacks, ac);
+		}
 		printf("\n*adaptive*\n");
 	}
+	if (flags[1] == 1)
+		ft_bench(&(stacks->bench));
 	printf("----Movements: %i\n", op_count);
 	return (ft_free_stacks (stacks, flags), 0);
 }
