@@ -6,7 +6,7 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 12:18:22 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/26 13:00:24 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/26 13:15:23 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ t_node	*ft_new_node(char **av, int i)
 
 	if (!ft_is_valid(av[i]))
 	{
-		write(2, "Error\n", 12);
+		write(2, "Error\n", 6);
 		return (NULL);
 	}
 	new_node = malloc (sizeof (t_node));

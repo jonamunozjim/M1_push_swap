@@ -6,7 +6,7 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 10:20:41 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/26 11:25:27 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/26 13:22:35 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,15 +80,8 @@ char	**ft_process_arg(int ac, char **av, int *flags)
 		if (ft_strchr(av[i], ' '))
 		{
 			tmp = ft_strjoin("x ", av[i]);
-			//tmp = av[i];
 			flags[2] = word_count (tmp, ' ');
 			output = ft_split (tmp, ' ');
-			i = 1;
-			while (i < flags[2])
-			{
-				printf("%s\n", output[i]);
-				i++;
-			}
 			free (tmp);
 			return (output);
 		}
