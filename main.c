@@ -39,12 +39,16 @@ int	main(int ac, char **av)
 	float		disorder_i;
 	int			op_count;
 	char		**input;
-	int			*flags;
+	int			*flags; //0, algoritm; 1 bench; 2 ac
 
 	flags = set_flags(ac, av);
 	if (!flags)
-		return (write (2, "Error1\n", 6), 0);
-	input = ft_process_arg (ac, av);
+		return (write (2, "Error\n", 6), 0);
+	printf("Algor: %i\nBench: %i\n", flags[0], flags[1]); //for testing only, delete
+	input = ft_process_arg (ac, av, flags);
+	
+	printf("%s", av)
+	return (0);
 	/*if (flags[1])
 		//lamar al bench*/
 	op_count = 0;
