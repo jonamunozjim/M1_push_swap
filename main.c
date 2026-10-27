@@ -69,6 +69,17 @@ void	ft_strategy(t_stacks *stacks, float disorder_i, int ac, int *flags)
 		ft_adaptive (stacks, disorder_i, ac);
 }
 
+void	ft_bench_cero(t_stacks *stacks, float disorder_i, int ac, int *flags)
+{
+	stacks->bench.disorder = disorder_i;
+	if (disorder_i == 0)
+		stacks->bench.strategy = "Already sorted";
+	else
+		ft_strategy(stacks, disorder_i, ac, flags);
+	if (flags[1] == 1)
+		ft_bench(&(stacks->bench));
+}
+
 int	main(int ac, char **av)
 {
 	t_stacks	*stacks;
@@ -86,14 +97,9 @@ int	main(int ac, char **av)
 		return (write (2, "Error\n", 6), free(flags), ft_free_input(input), 0);
 	stacks = ft_init_stacks ();
 	ac = ft_fill_nodes(stacks, flags[2], input);
-	if (ac < 0)
-		return (ft_free_stacks (stacks, flags, av, input), 0);
-	disorder_i = ft_disorder (stacks);
-	if (disorder_i <= 0)
-		return (ft_free_stacks (stacks, flags, av, input), 0);
-	stacks->bench.disorder = disorder_i;
-	ft_strategy (stacks, disorder_i, ac, flags);
-	if (flags[1] == 1)
-		ft_bench(&(stacks->bench));
-	return (ft_free_stacks (stacks, flags, av, input), 0);
+	disorder_i = ft_disorder(stacks);
+	if (ac < 0 || disorder_i < 0)
+		return (ft_free_stacks(stacks, flags, av, input), 0);
+	ft_bench_cero(stacks, disorder_i, ac, flags);
+	return (ft_free_stacks(stacks, flags, av, input), 0);
 }
