@@ -85,8 +85,10 @@ void			ft_track_op(t_stacks *stacks, char *op, int len);
 void			ft_bench(t_bench *bench);
 char			**ft_process_arg(int ac, char **av, int *flags);
 int				*set_flags(int ac, char **av);
-void			ft_free_stacks(t_stacks *stacks, int *flags, char **av, char **input);
+void			ft_free_stacks(t_stacks *stacks, int *flags,
+					char **av, char **input);
 t_stacks		*ft_init_stacks(void);
 void			ft_free_input(char **input);
+char			*ft_join_args(int ac, char **av);
 
 #endif

@@ -13,7 +13,7 @@
 #include "super_libft.h"
 #include "push_swap.h"
 
-void	ft_adaptive(t_stacks *stacks, int disorder_i, int ac)
+void	ft_adaptive(t_stacks *stacks, float disorder_i, int ac)
 {
 	if (disorder_i < 0.2)
 	{
