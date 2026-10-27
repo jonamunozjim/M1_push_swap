@@ -6,7 +6,7 @@
 /*   By: jmunoz-j <jmunoz-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/27 09:15:01 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/27 21:27:18 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/27 21:57:14 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,7 +87,7 @@ int	main(int ac, char **av)
 	arg = ft_calloc (1, sizeof(int));
 	stacks = ft_init_stacks ();
 	input = ft_process_arg_checker (ac, av, arg);
-	if (ft_fill_nodes(stacks, ac, input) < 0)
+	if (ft_fill_nodes(stacks, ac, input) <= 0)
 		return (ft_free_all (stacks, arg), 0);
 	if (ft_disorder (stacks) < 0 || run_operations (stacks) < 0)
 		return (ft_free_all (stacks, arg), 0);
