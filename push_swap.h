@@ -54,18 +54,18 @@ typedef struct s_stacks
 
 unsigned int	ft_dlstsize(t_node *node);
 void			ft_dlstclear(t_node **dlst);
-void			ft_push_a(t_stacks *stacks);
-void			ft_push_b(t_stacks *stacks);
-void			ft_push_a_b(t_stacks *stacks);
+void			ft_push_a(t_stacks *stacks, int write_flag);
+void			ft_push_b(t_stacks *stacks, int write_flag);
+void			ft_push_a_b(t_stacks *stacks, int write_flag);
 void			ft_swap_a(t_stacks *stacks, int write_flag);
 void			ft_swap_b(t_stacks *stacks, int write_flag);
-void			ft_swap_a_b(t_stacks *stacks);
+void			ft_swap_a_b(t_stacks *stacks, int write_flag);
 void			ft_rotate_a(t_stacks *stacks, int write_flag);
 void			ft_rotate_b(t_stacks *stacks, int write_flag);
-void			ft_rotate_a_b(t_stacks *stacks);
+void			ft_rotate_a_b(t_stacks *stacks, int write_flag);
 void			ft_reverse_rotate_a(t_stacks *stacks, int write_flag);
 void			ft_reverse_rotate_b(t_stacks *stacks, int write_flag);
-void			ft_reverse_rotate_a_b(t_stacks *stacks);
+void			ft_reverse_rotate_a_b(t_stacks *stacks, int write_flag);
 int				ft_fill_nodes(t_stacks *stacks, int ac, char **av);
 t_node			*ft_new_node(char **av, int i);
 float			ft_disorder(t_stacks *stacks);

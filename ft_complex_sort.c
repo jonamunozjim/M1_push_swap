@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_complex_sort.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fejimene <fejimene@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmunoz-j <jmunoz-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 14:32:41 by fejimene          #+#    #+#             */
-/*   Updated: 2026/10/22 11:37:17 by fejimene         ###   ########.fr       */
+/*   Updated: 2026/10/27 21:03:40 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ int	get_max_bits(int max_num)
 void	ft_process_bit(t_stacks *stacks, int i)
 {
 	if (((stacks->head_a->chunk_index >> i) & 1) == 0)
-		ft_push_b(stacks);
+		ft_push_b (stacks, 1);
 	else
 		ft_rotate_a(stacks, 1);
 }
@@ -72,7 +72,7 @@ int	ft_complex_sort(t_stacks *stacks, int total_nodes)
 		}
 		while (stacks->head_b != NULL)
 		{
-			ft_push_a(stacks);
+			ft_push_a(stacks, 1);
 			count++;
 		}
 		i++;

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_sort_small.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmunoz-j <jmunoz-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/22 13:11:56 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/26 17:40:36 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/27 21:10:18 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ int	ft_push_b_min(t_stacks *stacks)
 		count++;
 		i++;
 	}
-	ft_push_b (stacks);
+	ft_push_b (stacks, 1);
 	return (count + 1);
 }
 /*bak
@@ -126,11 +126,11 @@ int	ft_sort_five(t_stacks *stacks, int nodes)
 	if (nodes == 5)
 		count = count + ft_push_b_min (stacks);
 	count = count + ft_sort_three (stacks);
-	ft_push_a (stacks);
+	ft_push_a (stacks, 1);
 	count++;
 	if (nodes == 5)
 	{
-		ft_push_a (stacks);
+		ft_push_a (stacks, 1);
 		count++;
 	}
 	return (count);

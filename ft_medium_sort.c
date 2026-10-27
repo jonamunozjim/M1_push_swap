@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_medium_sort.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmunoz-j <jmunoz-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/21 11:09:04 by fejimene          #+#    #+#             */
-/*   Updated: 2026/10/27 11:12:55 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/27 21:03:40 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ void	ft_push_chunk(t_stacks *stacks, int *i, int range, int *count)
 {
 	if (stacks->head_a->chunk_index <= *i)
 	{
-		ft_push_b(stacks);
+		ft_push_b (stacks, 1);
 		ft_rotate_b(stacks, 1);
 		(*i)++;
 		(*count)++;
 	}
 	else if (stacks->head_a->chunk_index <= *i + range)
 	{
-		ft_push_b(stacks);
+		ft_push_b (stacks, 1);
 		(*i)++;
 	}
 	else
@@ -115,7 +115,7 @@ int	ft_medium_sort(t_stacks *stacks, int total_nodes)
 	{
 		max_pos = get_max_pos(stacks->head_b);
 		count = count + ft_bring_to_top(stacks, max_pos, size_b);
-		ft_push_a(stacks);
+		ft_push_a(stacks, 1);
 		size_b--;
 	}
 	return (count);

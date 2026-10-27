@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_reverse_rotate.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmunoz-j <jmunoz-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 12:13:21 by fejimene          #+#    #+#             */
-/*   Updated: 2026/10/26 09:43:55 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/27 21:08:27 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,10 @@ void	ft_reverse_rotate_b(t_stacks *stacks, int write_flag)
 		ft_track_op(stacks, "rrb", 3);
 }
 
-void	ft_reverse_rotate_a_b(t_stacks *stacks)
+void	ft_reverse_rotate_a_b(t_stacks *stacks, int write_flag)
 {
 	ft_reverse_rotate_a(stacks, 0);
 	ft_reverse_rotate_b(stacks, 0);
-	ft_track_op(stacks, "rrr", 3);
+	if (write_flag)
+		ft_track_op(stacks, "rrr", 3);
 }
