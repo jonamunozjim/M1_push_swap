@@ -1,0 +1,88 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: fejimene <fejimene@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2026/09/28 12:40:43 by fejimene          #+#    #+#              #
+#    Updated: 2026/10/23 13:12:34 by fejimene         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+NAME = super_libft.a
+CC = cc
+CFLAGS = -Wall -Werror -Wextra
+RM = rm -f
+SRC = ft_isalpha \
+	ft_isdigit \
+	ft_isalnum \
+	ft_isascii \
+	ft_isprint \
+	ft_strlen \
+	ft_memset \
+	ft_bzero \
+	ft_memcpy \
+	ft_memmove \
+	ft_strlcpy \
+	ft_strlcat \
+	ft_toupper \
+	ft_tolower \
+	ft_strchr \
+	ft_strrchr \
+	ft_strncmp \
+	ft_memchr \
+	ft_memcmp \
+	ft_strnstr \
+	ft_atoi \
+	ft_calloc \
+	ft_strdup \
+	ft_substr \
+	ft_strjoin \
+	ft_strtrim \
+	ft_split \
+	ft_itoa \
+	ft_strmapi \
+	ft_striteri \
+	ft_putchar_fd \
+	ft_putstr_fd \
+	ft_putendl_fd \
+	ft_putnbr_fd \
+	ft_lstnew \
+	ft_lstadd_front \
+	ft_lstsize \
+	ft_lstlast \
+	ft_lstadd_back \
+	ft_lstdelone \
+	ft_lstclear \
+	ft_lstiter \
+	ft_lstmap \
+	ft_printf \
+	ft_conver_print \
+	ft_putchar_print \
+	ft_puthex_print \
+	ft_putnbr_print \
+	ft_putptr_print \
+	ft_putstr_print \
+	ft_putunbr_print \
+	get_next_line \
+	get_next_line_utils \
+	get_next_line_bonus \
+
+SRCS = $(addsuffix .c, $(SRC))
+OBJS = $(addsuffix .o, $(SRC))
+# Main
+all: $(NAME);
+# Create the static library
+$(NAME): $(OBJS)
+	ar rcs $(NAME) $(OBJS)
+# Remove .o
+clean:
+	$(RM) $(OBJS)
+# Remove .o and libft.a
+fclean: clean
+	$(RM) $(NAME)
+# Recompile
+re: fclean all
+# Prevent conflict
+.PHONY: all clean fclean re

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   super_libft.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fejimene <fejimene@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/21 11:54:48 by fejimene          #+#    #+#             */
-/*   Updated: 2026/10/26 09:44:42 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/23 13:21:01 by fejimene         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,10 @@
 # include <unistd.h>
 # include <stdio.h>
 # include <stdarg.h>
+
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
 
 int				ft_isalpha(int c);
 int				ft_isdigit(int c);
@@ -54,15 +58,6 @@ void			ft_putstr_fd(char *s, int fd);
 void			ft_putendl_fd(char *s, int fd);
 void			ft_putnbr_fd(int n, int fd);
 
-int				ft_printf(char const *str, ...);
-int				ft_conver(char const str, va_list args);
-int				ft_putchar_print(int c);
-int				ft_putnbr_print(int n);
-int				ft_putunbr_print(unsigned int n);
-int				ft_putstr_print(char *s);
-int				ft_puthex_print(unsigned long nb, const char c);
-int				ft_putptr_print(void *ptr);
-
 typedef struct s_list
 {
 	void			*content;
@@ -79,3 +74,19 @@ void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
 #endif
+
+int				ft_printf(char const *str, ...);
+int				ft_conver(char const str, va_list args);
+int				ft_putchar_print(int c);
+int				ft_putnbr_print(int n);
+int				ft_putunbr_print(unsigned int n);
+int				ft_putstr_print(char *s);
+int				ft_puthex_print(unsigned long nb, const char c);
+int				ft_putptr_print(void *ptr);
+
+char			*get_next_line(int fd);
+char			*ft_read(int fd, char *buffer);
+char			*ft_line(char *buffer);
+char			*ft_clean(char *buffer, char *line);
+char			*ft_free_and_null(char *res, char *buffer);
+char			*ft_strjoin_next_line(char *s1, char *s2);

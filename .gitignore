@@ -3,3 +3,5 @@ checker_linux
 *.txt
 tester/
 push_tester/
+super_libft/
+tester.sh
