@@ -6,7 +6,7 @@
 #    By: fejimene <fejimene@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/28 12:40:43 by fejimene          #+#    #+#              #
-#    Updated: 2026/10/23 13:12:34 by fejimene         ###   ########.fr        #
+#    Updated: 2026/10/27 09:59:46 by fejimene         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -67,12 +67,15 @@ SRC = ft_isalpha \
 	ft_putunbr_print \
 	get_next_line \
 	get_next_line_utils \
-	get_next_line_bonus \
+	get_next_line_bonus 
 
 SRCS = $(addsuffix .c, $(SRC))
 OBJS = $(addsuffix .o, $(SRC))
+## Compile .c to .o
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
 # Main
-all: $(NAME);
+all: $(NAME)
 # Create the static library
 $(NAME): $(OBJS)
 	ar rcs $(NAME) $(OBJS)

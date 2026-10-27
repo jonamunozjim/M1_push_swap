@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+         #
+#    By: fejimene <fejimene@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/26 14:11:08 by jmunoz-j          #+#    #+#              #
-#    Updated: 2026/10/26 14:11:18 by jmunoz-j         ###   ########.fr        #
+#    Updated: 2026/10/27 10:33:57 by fejimene         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,10 +26,12 @@
 NAME = push_swap
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+INCLUDES = -I. -I./Super_libft
 RM = rm -rf
 
-## Static library name
-LIB_A = super_libft.a
+## Library configuration
+LIB_DIR = Super_libft
+LIB_A = $(LIB_DIR)/super_libft.a
 
 ## Source files
 SRC = ft_bench.c \
@@ -54,19 +56,25 @@ OBJ = $(SRC:%.c=%.o)
 ## Main rules
 all: $(NAME)
 
+## Compile the library first by calling the Makefile in its directory
+$(LIB_A):
+	$(MAKE) -C $(LIB_DIR)
+
 ## Compile push_swap linking .o files with the .a library
-$(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) $(LIB_A) -o $(NAME)
+$(NAME): $(OBJ) $(LIB_A)
+	$(CC) $(CFLAGS) $(OBJ) $(LIB_A) $(INCLUDES) -o $(NAME)
 
 ## Compile .c to .o
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 ## Clean rules
 clean:
+	$(MAKE) -C $(LIB_DIR) clean
 	$(RM) $(OBJ)
 
 fclean: clean
+	$(MAKE) -C $(LIB_DIR) fclean
 	$(RM) $(NAME)
 
 re: fclean all
