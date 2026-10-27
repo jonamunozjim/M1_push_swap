@@ -1,41 +1,79 @@
+# Super Libft
+
 *Este proyecto ha sido creado como parte del currículo de 42 por fejimene.*
 
-# Libft
+> **Nota importante:** Esta no es la `libft` estándar del primer proyecto de 42. `Super_libft` es una librería estática unificada y expandida, diseñada para ser el "motor" principal de todos mis futuros proyectos en la escuela.
 
-## Descripción
-**Libft** es el primer proyecto del currículo de la escuela 42. El objetivo de este proyecto es reescribir desde cero varias funciones estándar de la biblioteca de C (`libc`), así como otras funciones de utilidad general y manipulación de listas enlazadas. 
+## ¿Qué es la Super Libft?
 
-En los futuros proyectos de 42 esta biblioteca personalizada (`libft.a`) será la herramienta base que se utilizará a lo largo de todo el cursus. Este proyecto permite comprender a bajo nivel la gestión dinámica de memoria, el uso de punteros y la estructura de las listas enlazadas.
+En la escuela 42, no se nos permite usar algunas funciones estándar de C sin haberlas reprogramado nosotros mismos. 
 
-## Características
-El proyecto se divide en tres partes principales:
+Para no tener que reescribir código constantemente, he agrupado mis principales proyectos de nivel 0 y 1 en esta única súper-librería. Al compilarla, genera un único archivo `super_libft.a` que contiene todas estas herramientas.
 
-1. **Funciones de la Libc:** Implementación de funciones clásicas como `ft_strlen`, `ft_strchr`, `ft_strncmp`, `ft_atoi`, `ft_calloc`, `ft_strdup`, y funciones de memoria como `ft_memset`, `ft_bzero`, `ft_memcpy`, entre otras.
-2. **Funciones adicionales:** Herramientas útiles para el manejo de strings y números, tales como `ft_substr`, `ft_strjoin`, `ft_strtrim`, `ft_split`, `ft_itoa`, `ft_strmapi` y funciones de escritura en file descriptors (`ft_putchar_fd`, etc.).
-3. **Listas enlazadas:** Estructura y funciones para el manejo de listas simples (creación de nodos, adición al principio/final, iteración, mapeo y liberación de memoria).
+### Proyectos integrados:
+* **Libft base:** Todas las funciones de la Libc (`ft_strlen`, `ft_atoi`, `ft_split`, etc.) y utilidades de manipulación de strings y memoria.
+* **Libft Bonus:** Gestión completa de listas enlazadas (`ft_lstnew`, `ft_lstadd_back`, `ft_lstclear`, etc.).
+* **ft_printf:** Mi propia versión de la función `printf` de C, capaz de manejar múltiples conversiones (`%s`, `%d`, `%x`, `%p`, etc.).
+* **get_next_line:** Función optimizada para leer archivos línea por línea, incluyendo soporte para *bonus* (múltiples File Descriptors simultáneos).
 
-## Instrucciones
+---
 
-### Compilación e Instalación
-El proyecto incluye un `Makefile` que compila los archivos fuente y genera una biblioteca estática llamada `libft.a`.
+## Cómo integrarla en otros proyectos
 
-Para compilar la biblioteca:
-```bash
-make
+Esta librería está pensada para vivir como un submódulo o subcarpeta dentro de proyectos más grandes. 
+
+### 1. Estructura de carpetas recomendada
+Coloca toda esta carpeta dentro de la raíz de tu nuevo proyecto:
+```text
+mi_nuevo_proyecto/
+├── Makefile
+├── Tu_programa.c
+└── Super_libft/
+    ├── Makefile
+    ├── super_libft.h
+    └── (archivos .c)
 ```
 
-Otros comandos útiles del Makefile:
-* `make clean`: Elimina los archivos objeto (`.o`).
-* `make fclean`: Ejecuta `clean` y además elimina el archivo `libft.a`.
-* `make re`: Ejecuta `fclean` y vuelve a compilar todo (`make`).
+### 2. Configuración en tu código C
+Al estar todo unificado, solo necesitas incluir una cabecera en tus archivos `.c` para tener acceso a `printf`, `get_next_line` y todas las utilidades de la libft:
+```c
+#include "super_libft.h"
+```
 
-## Recursos
+### 3. Configuración en tu Makefile principal
+Para que tu proyecto reaccione a la librería, asegúrate de que tu `Makefile` principal tenga la bandera `-I` para las cabeceras, y que llame al Makefile de `Super_libft` antes de compilar el binario:
 
-### Referencias técnicas
-* **Manuales de Linux/Unix (`man`):** Uso de las páginas del manual para comprender el comportamiento esperado, los valores de retorno y la gestión de punteros nulos de las funciones originales.
-* **Valgrind:** Herramienta fundamental utilizada para la detección de *memory leaks* (fugas de memoria) y errores de segmentación.
+```makefile
+# Variables de la librería
+LIB_DIR = Super_libft
+LIB_A = $(LIB_DIR)/super_libft.a
+INCLUDES = -I. -I./Super_libft
 
-### Uso de Inteligencia Artificial
-Durante el desarrollo de este proyecto, se ha utilizado un asistente de IA estrictamente como herramienta de apoyo para las siguientes tareas:
-* **Debugging y gestión de memoria:** Análisis de error de Valgrind para comprender la raíz y fugas de memoria en funciones complejas de asignación dinámica.
-* **Protección contra Segmentation Faults:** Ayuda para entender cómo usar de forma segura los dobles punteros (`**lst`) y proteger las funciones de listas enlazadas para que no fallen al recibir valores nulos `NULL`.
+# Regla para compilar la librería automáticamente
+$(LIB_A):
+	$(MAKE) -C $(LIB_DIR)
+
+# Regla para tu programa principal
+tu_programa: $(OBJ) $(LIB_A)
+	$(CC) $(CFLAGS) $(OBJ) $(LIB_A) $(INCLUDES) -o tu_programa
+
+# Regla para compilar tus .c a .o
+%.o: %.c
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+```
+
+---
+
+## Comandos del Makefile de Super_libft
+
+Si quieres probar o compilar la librería de forma independiente, puedes usar los comandos estándar dentro de su carpeta:
+
+| Comando | Descripción |
+| :--- | :--- |
+| `make` | Compila todos los archivos `.c` y genera el archivo `super_libft.a`. |
+| `make clean` | Elimina todos los archivos objeto (`.o`) generados durante la compilación. |
+| `make fclean` | Ejecuta `clean` y además elimina el archivo `super_libft.a`. |
+| `make re` | Ejecuta `fclean` y luego `make`, recompilando todo desde cero. |
+
+---
+*Proyecto creado para el cursus de 42.*
