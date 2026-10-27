@@ -79,8 +79,8 @@ int	main(int ac, char **av)
 	if (ac == 1)
 		return (0);
 	flags = set_flags(ac, av);
-	if (!flags)
-		return (write (2, "Error\n", 6), 0);
+	if (!flags || flags[0] == -1 || flags[1] == -1)
+		return (write (2, "Error\n", 6), free (flags), 0);
 	input = ft_process_arg (ac, av, flags);
 	if (flags[2] == 1)
 		return (write (2, "Error\n", 6), free(flags), ft_free_input(input), 0);

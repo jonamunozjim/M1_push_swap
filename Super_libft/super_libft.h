@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   super_libft.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fejimene <fejimene@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/21 11:54:48 by fejimene          #+#    #+#             */
-/*   Updated: 2026/10/23 13:21:01 by fejimene         ###   ########.fr       */
+/*   Updated: 2026/10/27 11:16:03 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,6 @@ void			ft_lstclear(t_list **lst, void (*del)(void*));
 void			ft_lstiter(t_list *lst, void (*f)(void *));
 t_list			*ft_lstmap(t_list *lst, void *(*f)(void *),
 					void (*del)(void *));
-#endif
-
 int				ft_printf(char const *str, ...);
 int				ft_conver(char const str, va_list args);
 int				ft_putchar_print(int c);
@@ -90,3 +88,5 @@ char			*ft_line(char *buffer);
 char			*ft_clean(char *buffer, char *line);
 char			*ft_free_and_null(char *res, char *buffer);
 char			*ft_strjoin_next_line(char *s1, char *s2);
+
+#endif

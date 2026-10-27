@@ -6,7 +6,7 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 10:20:41 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/27 09:05:12 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/27 12:22:09 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,7 @@ int	*set_flags(int ac, char **av)
 		if (!ft_strncmp (av[i], "--bench", 7))
 			flags[1] = ft_check_double_flag (flags[1], 1);
 		if (flags[0] < 0 || flags[1] < 0)
-			return (NULL);
+			return (flags);
 		i++;
 	}
 	return (flags);

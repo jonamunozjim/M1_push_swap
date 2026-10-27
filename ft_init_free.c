@@ -31,6 +31,7 @@ t_stacks	*ft_init_stacks(void)
 		return (NULL);
 	stacks->head_a = NULL;
 	stacks ->head_b = NULL;
+	init_bench(&(stacks->bench));
 	return (stacks);
 }
 

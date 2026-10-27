@@ -6,13 +6,13 @@
 /*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 12:18:22 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/26 13:15:23 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/10/27 11:16:25 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_remove_flags(char **str, int ac)
+int	ft_remove_flags_init(char **str, int ac)
 {
 	int	i;
 
@@ -29,6 +29,22 @@ int	ft_remove_flags(char **str, int ac)
 			return (i);
 	}
 	return (i);
+}
+
+int	ft_remove_flags_end(char **str, int ac)
+{
+	while (ac > 0)
+	{
+		if (!ft_strncmp (str[ac - 1], "--simple", 8)
+			|| !ft_strncmp (str[ac - 1], "--medium", 8)
+			|| !ft_strncmp (str[ac - 1], "--complex", 9)
+			|| !ft_strncmp (str[ac - 1], "--adaptive", 10)
+			|| !ft_strncmp (str[ac - 1], "--bench", 7))
+			ac--;
+		else
+			return (ac);
+	}
+	return (ac);
 }
 
 int	ft_is_valid(char *str)
@@ -86,8 +102,9 @@ int	ft_fill_nodes(t_stacks *stacks, int ac, char **av)
 	int		i;
 	int		start;
 
-	i = ft_remove_flags(av, ac);
+	i = ft_remove_flags_init(av, ac);
 	start = i;
+	ac = ft_remove_flags_end(av, ac);
 	if (i >= ac)
 		return (0);
 	stacks->head_a = ft_new_node (av, i);

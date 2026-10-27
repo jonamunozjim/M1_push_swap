@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: fejimene <fejimene@student.42.fr>          +#+  +:+       +#+         #
+#    By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/10/26 14:11:08 by jmunoz-j          #+#    #+#              #
-#    Updated: 2026/10/27 10:33:57 by fejimene         ###   ########.fr        #
+#    Updated: 2026/10/27 12:21:55 by jmunoz-j         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,6 @@ LIB_A = $(LIB_DIR)/super_libft.a
 ## Source files
 SRC = ft_bench.c \
     ft_disorder.c \
-    ft_dlst_size.c \
     ft_init_free.c \
     ft_push.c \
     ft_reverse_rotate.c \
