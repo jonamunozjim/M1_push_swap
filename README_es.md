@@ -1,5 +1,11 @@
 *Este proyecto ha sido creado como parte del currículo de 42 por jmunoz-j, fejimene.*
 
+<div align="right">
+  <strong>Idiomas:</strong>
+  <a href="README.md">English</a> ｜ 
+  <a href="README_es.md">Español</a>
+</div>
+
 # Push_swap
 
 ## Descripción
