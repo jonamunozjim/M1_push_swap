@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_fill_nodes.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmunoz-j <jmunoz-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/19 12:18:22 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/27 11:16:25 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/11/08 12:30:06 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,11 @@ int	ft_remove_flags_init(char **str, int ac)
 	i = 1;
 	while (i < ac)
 	{
-		if (!ft_strncmp (str[i], "--simple", 8)
-			|| !ft_strncmp (str[i], "--medium", 8)
-			|| !ft_strncmp (str[i], "--complex", 9)
-			|| !ft_strncmp (str[i], "--adaptive", 10)
-			|| !ft_strncmp (str[i], "--bench", 7))
+		if (!ft_strncmp (str[i], "--simple", 9)
+			|| !ft_strncmp (str[i], "--medium", 9)
+			|| !ft_strncmp (str[i], "--complex", 10)
+			|| !ft_strncmp (str[i], "--adaptive", 11)
+			|| !ft_strncmp (str[i], "--bench", 8))
 			i++;
 		else
 			return (i);
@@ -35,11 +35,11 @@ int	ft_remove_flags_end(char **str, int ac)
 {
 	while (ac > 0)
 	{
-		if (!ft_strncmp (str[ac - 1], "--simple", 8)
-			|| !ft_strncmp (str[ac - 1], "--medium", 8)
-			|| !ft_strncmp (str[ac - 1], "--complex", 9)
-			|| !ft_strncmp (str[ac - 1], "--adaptive", 10)
-			|| !ft_strncmp (str[ac - 1], "--bench", 7))
+		if (!ft_strncmp (str[ac - 1], "--simple", 9)
+			|| !ft_strncmp (str[ac - 1], "--medium", 9)
+			|| !ft_strncmp (str[ac - 1], "--complex", 10)
+			|| !ft_strncmp (str[ac - 1], "--adaptive", 11)
+			|| !ft_strncmp (str[ac - 1], "--bench", 8))
 			ac--;
 		else
 			return (ac);

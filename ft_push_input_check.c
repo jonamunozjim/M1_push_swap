@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_push_input_check.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: jmunoz-j <jmunoz-j@student.42.fr>          +#+  +:+       +#+        */
+/*   By: jmunoz-j <jmunoz-j@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/23 10:20:41 by jmunoz-j          #+#    #+#             */
-/*   Updated: 2026/10/27 12:22:09 by jmunoz-j         ###   ########.fr       */
+/*   Updated: 2026/11/08 12:29:30 by jmunoz-j         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,15 +51,15 @@ int	*set_flags(int ac, char **av)
 		return (NULL);
 	while (i < ac)
 	{
-		if (!ft_strncmp (av[i], "--simple", 8))
+		if (!ft_strncmp (av[i], "--simple", 9))
 			flags[0] = ft_check_double_flag (flags[0], 1);
-		if (!ft_strncmp (av[i], "--medium", 8))
+		if (!ft_strncmp (av[i], "--medium", 9))
 			flags[0] = ft_check_double_flag (flags[0], 2);
-		if (!ft_strncmp (av[i], "--complex", 9))
+		if (!ft_strncmp (av[i], "--complex", 10))
 			flags[0] = ft_check_double_flag (flags[0], 3);
-		if (!ft_strncmp (av[i], "--adaptive", 10))
+		if (!ft_strncmp (av[i], "--adaptive", 11))
 			flags[0] = ft_check_double_flag (flags[0], 4);
-		if (!ft_strncmp (av[i], "--bench", 7))
+		if (!ft_strncmp (av[i], "--bench", 8))
 			flags[1] = ft_check_double_flag (flags[1], 1);
 		if (flags[0] < 0 || flags[1] < 0)
 			return (flags);
